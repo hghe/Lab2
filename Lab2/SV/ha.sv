@@ -9,6 +9,7 @@ module ha (Cout, Sum, A, B);
    assign Cout = A & B;   
 
    assign Sum = (~(Cout)) & (A | B);
+   //test
 
 endmodule // ha
 
