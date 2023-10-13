@@ -309,6 +309,26 @@ module feistel (inp_block, subkey, out_block);
    
    EF(inp_block, exp_inp); //not sure if syntax is correct
    
+   logic preSub[47:0];
+
+   assign preSub[47:0] = exp_inp ^ subkey;
+
+	logic preDiff[31:0];
+
+
+	S8_Box(preSub[5:0], preDiff[5:0]);
+	S7_Box(preSub[11:6], preDiff[11:6]);
+	S6_Box(preSub[17:12], preDiff[17:12]);
+	S5_Box(preSub[23:18], preDiff[23:18]);
+	S4_Box(preSub[29:24], preDiff[29:24]);
+	S3_Box(preSub[35:30], preDiff[35:30]);
+	S2_Box(preSub[41:36], preDiff[41:36]);
+	S1_Box(preSub[47:42], preDiff[47:42]);
+
+	SF(preDiff, out_block);
+
+
+
    
    
    
@@ -325,6 +345,24 @@ module round (inp_block, subkey, out_block);
    input logic [63:0]  inp_block;
    input logic [47:0]  subkey;
    output logic [63:0] out_block;
+
+
+   logic left_block[31:0];
+   logic right_block[31:0];
+
+   assign left_block[31:0] = inp_block[63:32];
+   assign right_block[31:0] = inp_block[31:0];
+
+
+	 //assign left side of outblock to right side of inp block
+   assign out_block[63:32] = right_block[31:0];
+
+	logic feistOut[31:0];
+	feistel(right_block, subkey, feistOut);
+	
+	assign out_block[31:0] = feistOut ^ left_block;
+	
+
 
 endmodule // round1
 
