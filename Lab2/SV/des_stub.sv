@@ -10,8 +10,15 @@ module GenerateKeys (Key, SubKey1, SubKey2, SubKey3, SubKey4,
 		     SubKey13, SubKey14, SubKey15, SubKey16);
    
    // Generate SubKeys
+   
    input logic [63:0]  Key;
+
+	logic [55:0]keyNoParity;
+	assign keyNoParity = {Key[]};
    output logic [47:0] SubKey1;
+
+   assign SubKey1 = {}
+   
    output logic [47:0] SubKey2;
    output logic [47:0] SubKey3;
    output logic [47:0] SubKey4;
@@ -177,7 +184,7 @@ module PC2 (left_block, right_block, subkey);
    assign subkey[1 ] = com_block[56-29];
    assign subkey[0 ] = com_block[56-32];
    
-   assign subkey
+   
    
 endmodule // PC2
 
@@ -305,25 +312,25 @@ module feistel (inp_block, subkey, out_block);
    input logic [47:0]  subkey;
    output logic [31:0] out_block;
    
-   logic exp_inp[47:0];
+   logic [47:0]exp_inp;
    
    EF(inp_block, exp_inp); //not sure if syntax is correct
    
-   logic preSub[47:0];
+   logic [47:0]preSub;
 
-   assign preSub[47:0] = exp_inp ^ subkey;
+   assign preSub[47:0] = (exp_inp[47:0] ^ subkey[47:0]);
 
-	logic preDiff[31:0];
+	logic [31:0]preDiff;
 
 
-	S8_Box(preSub[5:0], preDiff[5:0]);
-	S7_Box(preSub[11:6], preDiff[11:6]);
-	S6_Box(preSub[17:12], preDiff[17:12]);
-	S5_Box(preSub[23:18], preDiff[23:18]);
-	S4_Box(preSub[29:24], preDiff[29:24]);
-	S3_Box(preSub[35:30], preDiff[35:30]);
-	S2_Box(preSub[41:36], preDiff[41:36]);
-	S1_Box(preSub[47:42], preDiff[47:42]);
+	S8_Box(preSub[5:0], preDiff[3:0]);
+	S7_Box(preSub[11:6], preDiff[7:4]);
+	S6_Box(preSub[17:12], preDiff[11:8]);
+	S5_Box(preSub[23:18], preDiff[15:12]);
+	S4_Box(preSub[29:24], preDiff[19:16]);
+	S3_Box(preSub[35:30], preDiff[23:20]);
+	S2_Box(preSub[41:36], preDiff[27:24]);
+	S1_Box(preSub[47:42], preDiff[31:28]);
 
 	SF(preDiff, out_block);
 
@@ -347,8 +354,8 @@ module round (inp_block, subkey, out_block);
    output logic [63:0] out_block;
 
 
-   logic left_block[31:0];
-   logic right_block[31:0];
+   logic [31:0]left_block;
+   logic [31:0]right_block;
 
    assign left_block[31:0] = inp_block[63:32];
    assign right_block[31:0] = inp_block[31:0];
@@ -357,11 +364,11 @@ module round (inp_block, subkey, out_block);
 	 //assign left side of outblock to right side of inp block
    assign out_block[63:32] = right_block[31:0];
 
-	logic feistOut[31:0];
+	logic [31:0]feistOut;
 	feistel(right_block, subkey, feistOut);
 	
 	assign out_block[31:0] = feistOut ^ left_block;
-	
+
 
 
 endmodule // round1
