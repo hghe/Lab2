@@ -13,11 +13,16 @@ module GenerateKeys (Key, SubKey1, SubKey2, SubKey3, SubKey4,
    
    input logic [63:0]  Key;
 
-	logic [55:0]keyNoParity;
-	assign keyNoParity = {Key[]};
+	
+
+	logic [27:0]C1;
+	logic [27:0]D1;
+	
+	PC1(Key, C1, D1);
+
+	assign c1 = {c[26:0], c[27]};
    output logic [47:0] SubKey1;
 
-   assign SubKey1 = {}
    
    output logic [47:0] SubKey2;
    output logic [47:0] SubKey3;
