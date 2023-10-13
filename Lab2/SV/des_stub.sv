@@ -299,8 +299,23 @@ endmodule // EF
 module feistel (inp_block, subkey, out_block);
 
    input logic [31:0]  inp_block;
+   
+   
+   
    input logic [47:0]  subkey;
    output logic [31:0] out_block;
+   
+   logic exp_inp[47:0];
+   
+   EF(inp_block, exp_inp); //not sure if syntax is correct
+   
+   
+   
+   
+   
+   //assign exp_inp[47:0] = EF(inp_block);
+   
+   
 
 endmodule // Feistel
 
