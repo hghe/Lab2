@@ -19,7 +19,7 @@ module stimulus;
    integer 	 i;  
    integer       j;
 
-   DES dut (key, plaintext, encrypt, ciphertext);
+   DES dut (key, plaintext, CBC, IV, encrypt, ciphertext);
 
    // 1 ns clock
    initial 
