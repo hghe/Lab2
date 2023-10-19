@@ -13,32 +13,179 @@ module GenerateKeys (Key, SubKey1, SubKey2, SubKey3, SubKey4,
    
    input logic [63:0]  Key;
 
-	
+	//assuming left is top of register
+   	output logic [47:0] SubKey1;
+	output logic [47:0] SubKey2;
+	output logic [47:0] SubKey3;
+	output logic [47:0] SubKey4;
+	output logic [47:0] SubKey5;
+	output logic [47:0] SubKey6;
+	output logic [47:0] SubKey7;
+	output logic [47:0] SubKey8;
+	output logic [47:0] SubKey9;
+	output logic [47:0] SubKey10;
+	output logic [47:0] SubKey11;
+	output logic [47:0] SubKey12;
+	output logic [47:0] SubKey13;
+	output logic [47:0] SubKey14;
+	output logic [47:0] SubKey15;
+	output logic [47:0] SubKey16;
 
-	logic [27:0]C1;
-	logic [27:0]D1;
+	logic [27:0]C;
+	logic [27:0]D;
 	
-	PC1(Key, C1, D1);
-
-	assign c1 = {c[26:0], c[27]};
-   output logic [47:0] SubKey1;
+	/*
+	logic [27:0]C2;
+	logic [27:0]D2;
+	logic [27:0]C3;
+	logic [27:0]D3;
+	logic [27:0]C4;
+	logic [27:0]D4;
+	logic [27:0]C5;
+	logic [27:0]D5;
+	logic [27:0]C6;
+	logic [27:0]D6;
+	logic [27:0]C7;
+	logic [27:0]D7;
+	logic [27:0]C8;
+	logic [27:0]D8;
+	logic [27:0]C9;
+	logic [27:0]D9;
+	logic [27:0]C10;
+	logic [27:0]D10;
+	logic [27:0]C11;
+	logic [27:0]D11;
+	logic [27:0]C12;
+	logic [27:0]D12;
+	logic [27:0]C13;
+	logic [27:0]D13;
+	logic [27:0]C14;
+	logic [27:0]D14;
+	logic [27:0]C15;
+	logic [27:0]D15;
+	logic [27:0]C16;
+	logic [27:0]D16;
+	*/
+   
+	PC1(Key, C, D);
+	
+   	//round 1
+	//left shift by 1
+	assign C = {C[26:0], C[27]};
+	assign D = {D[26:0], D[27]};
+	
+	PC2(C, D, SubKey1);
+	
+	//round 2
+	//left shift by 1
+	assign C = {C[26:0], C[27]};
+	assign D = {D[26:0], D[27]};
+	
+	PC2(C, D, SubKey2);
+	
+	//round 3
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey3);
+	
+	//round 4
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey4);
+	
+	//round 5
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey5);
+	
+	
+	//round 6
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey6);
+	
+	//round 7
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey7);
+	
+	//round 8
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey8);
+	
+	//round 9
+	//left shift by 1	
+	assign C = {C[26:0], C[27]};
+	assign D = {D[26:0], D[27]};
+	
+	PC2(C, D, SubKey9);
+	
+	//round 10
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey10);
+	
+	//round 11
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey11);
+	
+	//round 12
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey12);
+	
+	//round 13
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey13);
+	
+	//round 14
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey14);
+	
+	//round 15
+	//left shift by 2	
+	assign C = {C[25:0], C[27:26]};
+	assign D = {D[25:0], D[27:26]};
+	
+	PC2(C, D, SubKey15);
+	
+	//round 16
+	//left shift by 1	
+	assign C = {C[26:0], C[27]};
+	assign D = {D[26:0], D[27]};
+	
+	PC2(C, D, SubKey16);
+	
+	
+	
 
    
-   output logic [47:0] SubKey2;
-   output logic [47:0] SubKey3;
-   output logic [47:0] SubKey4;
-   output logic [47:0] SubKey5;
-   output logic [47:0] SubKey6;
-   output logic [47:0] SubKey7;
-   output logic [47:0] SubKey8;
-   output logic [47:0] SubKey9;
-   output logic [47:0] SubKey10;
-   output logic [47:0] SubKey11;
-   output logic [47:0] SubKey12;
-   output logic [47:0] SubKey13;
-   output logic [47:0] SubKey14;
-   output logic [47:0] SubKey15;
-   output logic [47:0] SubKey16;
 
 endmodule // GenerateKeys
 
