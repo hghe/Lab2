@@ -3,7 +3,9 @@ module stimulus;
 
    logic [63:0]  key;
    logic [63:0]  plaintext;
+   logic [63:0] iv;
    logic 	 encrypt;
+   logic cbc;
    logic [63:0]  ciphertext;
 
    logic 	 clk;
@@ -11,7 +13,7 @@ module stimulus;
    logic [31:0]  vectornum;
    logic [63:0]  result;
    logic [7:0] 	 op;   
-   logic [199:0] testvectors[511:0];
+   logic [263:0] testvectors[511:0];
      
    
    integer 	 handle3;
@@ -19,7 +21,7 @@ module stimulus;
    integer 	 i;  
    integer       j;
 
-   DES dut (key, plaintext, CBC, IV, encrypt, ciphertext);
+   DES dut (key, plaintext, encrypt, cbc, iv, ciphertext);
 
    // 1 ns clock
    initial 
@@ -40,8 +42,9 @@ module stimulus;
    // apply test vectors on rising edge of clk
    always @(posedge clk)
      begin
-	#1; {plaintext, op, key, result} = testvectors[vectornum];
-	#0 encrypt = op[0];		  
+	#1; {plaintext, op, key, iv, result} = testvectors[vectornum];
+	#0 encrypt = op[0]; 
+  #0 cbc = op[1];		  
      end  
 
    // check results on falling edge of clk

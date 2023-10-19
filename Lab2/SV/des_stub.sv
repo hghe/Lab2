@@ -1288,7 +1288,7 @@ module S8_Box (inp_bits, out_bits);
 endmodule // S8_Box
 
 module DES (input logic [63:0] key, input logic [63:0] plaintext, 
-	    input logic encrypt, input logic cbc, input logic iv, output logic [63:0] ciphertext);
+	    input logic encrypt, input logic cbc, input logic [63:0] iv, output logic [63:0] ciphertext);
 
    logic [47:0] 	SubKey1, SubKey2, SubKey3, SubKey4;   
    logic [47:0] 	SubKey5, SubKey6, SubKey7, SubKey8;   
