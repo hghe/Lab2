@@ -31,162 +31,160 @@ module GenerateKeys (Key, SubKey1, SubKey2, SubKey3, SubKey4,
 	output logic [47:0] SubKey15;
 	output logic [47:0] SubKey16;
 
-	logic [27:0]C;
-	logic [27:0]D;
+	logic [27:0] C1;
+	logic [27:0] D1;
 	
-	/*
-	logic [27:0]C2;
-	logic [27:0]D2;
-	logic [27:0]C3;
-	logic [27:0]D3;
-	logic [27:0]C4;
-	logic [27:0]D4;
-	logic [27:0]C5;
-	logic [27:0]D5;
-	logic [27:0]C6;
-	logic [27:0]D6;
-	logic [27:0]C7;
-	logic [27:0]D7;
-	logic [27:0]C8;
-	logic [27:0]D8;
-	logic [27:0]C9;
-	logic [27:0]D9;
-	logic [27:0]C10;
-	logic [27:0]D10;
-	logic [27:0]C11;
-	logic [27:0]D11;
-	logic [27:0]C12;
-	logic [27:0]D12;
-	logic [27:0]C13;
-	logic [27:0]D13;
-	logic [27:0]C14;
-	logic [27:0]D14;
-	logic [27:0]C15;
-	logic [27:0]D15;
-	logic [27:0]C16;
-	logic [27:0]D16;
-	*/
+	
+	logic [27:0] C2;
+	logic [27:0] D2;
+	logic [27:0] C3;
+	logic [27:0] D3;
+	logic [27:0] C4;
+	logic [27:0] D4;
+	logic [27:0] C5;
+	logic [27:0] D5;
+	logic [27:0] C6;
+	logic [27:0] D6;
+	logic [27:0] C7;
+	logic [27:0] D7;
+	logic [27:0] C8;
+	logic [27:0] D8;
+	logic [27:0] C9;
+	logic [27:0] D9;
+	logic [27:0] C10;
+	logic [27:0] D10;
+	logic [27:0] C11;
+	logic [27:0] D11;
+	logic [27:0] C12;
+	logic [27:0] D12;
+	logic [27:0] C13;
+	logic [27:0] D13;
+	logic [27:0] C14;
+	logic [27:0] D14;
+	logic [27:0] C15;
+	logic [27:0] D15;
+	logic [27:0] C16;
+	logic [27:0] D16;
+	logic [27:0] C17;
+	logic [27:0] D17;
+	
    
-	PC1(Key, C, D);
+	PC1 split(Key, C1, D1);
 	
    	//round 1
 	//left shift by 1
-	assign C = {C[26:0], C[27]};
-	assign D = {D[26:0], D[27]};
+	assign C2 = {C1[26:0], C1[27]};
+	assign D2 = {D1[26:0], D1[27]};
 	
-	PC2(C, D, SubKey1);
+	PC2 choice1(C2, D2, SubKey1);
 	
 	//round 2
 	//left shift by 1
-	assign C = {C[26:0], C[27]};
-	assign D = {D[26:0], D[27]};
+	assign C3 = {C2[26:0], C2[27]};
+	assign D3 = {D2[26:0], D2[27]};
 	
-	PC2(C, D, SubKey2);
+	PC2 choice2(C3, D3, SubKey2);
 	
 	//round 3
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C4 = {C3[25:0], C3[27:26]};
+	assign D4 = {D3[25:0], D3[27:26]};
 	
-	PC2(C, D, SubKey3);
+	PC2 choice3(C4, D4, SubKey3);
 	
 	//round 4
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C5 = {C4[25:0], C4[27:26]};
+	assign D5 = {D4[25:0], D4[27:26]};
 	
-	PC2(C, D, SubKey4);
+	PC2 choice4(C5, D5, SubKey4);
 	
 	//round 5
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C6 = {C5[25:0], C5[27:26]};
+	assign D6 = {D5[25:0], D5[27:26]};
 	
-	PC2(C, D, SubKey5);
+	PC2 choice5(C6, D6, SubKey5);
 	
 	
 	//round 6
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C7 = {C6[25:0], C6[27:26]};
+	assign D7 = {D6[25:0], D6[27:26]};
 	
-	PC2(C, D, SubKey6);
+	PC2 choice6(C7, D7, SubKey6);
 	
 	//round 7
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C8 = {C7[25:0], C7[27:26]};
+	assign D8 = {D7[25:0], D7[27:26]};
 	
-	PC2(C, D, SubKey7);
+	PC2 choice7(C8, D8, SubKey7);
 	
 	//round 8
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C9 = {C8[25:0], C8[27:26]};
+	assign D9 = {D8[25:0], D8[27:26]};
 	
-	PC2(C, D, SubKey8);
+	PC2 choice8(C9, D9, SubKey8);
 	
 	//round 9
 	//left shift by 1	
-	assign C = {C[26:0], C[27]};
-	assign D = {D[26:0], D[27]};
+	assign C10 = {C9[26:0], C9[27]};
+	assign D10 = {D9[26:0], D9[27]};
 	
-	PC2(C, D, SubKey9);
+	PC2 choice9(C10, D10, SubKey9);
 	
 	//round 10
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C11 = {C10[25:0], C10[27:26]};
+	assign D11 = {D10[25:0], D10[27:26]};
 	
-	PC2(C, D, SubKey10);
+	PC2 choice10(C11, D11, SubKey10);
 	
 	//round 11
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C12 = {C11[25:0], C11[27:26]};
+	assign D12 = {D11[25:0], D11[27:26]};
 	
-	PC2(C, D, SubKey11);
+	PC2 choice11(C12, D12, SubKey11);
 	
 	//round 12
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C13 = {C12[25:0], C12[27:26]};
+	assign D13 = {D12[25:0], D12[27:26]};
 	
-	PC2(C, D, SubKey12);
+	PC2 choice12(C13, D13, SubKey12);
 	
 	//round 13
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C14 = {C13[25:0], C13[27:26]};
+	assign D14 = {D13[25:0], D13[27:26]};
 	
-	PC2(C, D, SubKey13);
+	PC2 choice13(C14, D14, SubKey13);
 	
 	//round 14
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C15 = {C14[25:0], C14[27:26]};
+	assign D15 = {D14[25:0], D14[27:26]};
 	
-	PC2(C, D, SubKey14);
+	PC2 choice14(C15, D15, SubKey14);
 	
 	//round 15
 	//left shift by 2	
-	assign C = {C[25:0], C[27:26]};
-	assign D = {D[25:0], D[27:26]};
+	assign C16 = {C15[25:0], C15[27:26]};
+	assign D16 = {D15[25:0], D15[27:26]};
 	
-	PC2(C, D, SubKey15);
+	PC2 choice15(C16, D16, SubKey15);
 	
 	//round 16
 	//left shift by 1	
-	assign C = {C[26:0], C[27]};
-	assign D = {D[26:0], D[27]};
+	assign C17 = {C16[26:0], C16[27]};
+	assign D17 = {D16[26:0], D16[27]};
 	
-	PC2(C, D, SubKey16);
+	PC2 choice16(C17, D17, SubKey16);
+		
 	
-	
-	
-
-   
-
 endmodule // GenerateKeys
 
 module PC1 (key, left_block, right_block);
@@ -391,68 +389,67 @@ endmodule // SF
 // Expansion Function
 module EF (inp_block, out_block);
 
-   input logic [31:0] inp_block;
-   output logic [47:0] out_block;
+	input logic [31:0] inp_block;
+	output logic [47:0] out_block;
 
-//assignment from table
-//line1
-assign out_block[47] = inp_block[32-32];
-assign out_block[46] = inp_block[32-1 ];
-assign out_block[45] = inp_block[32-2 ];
-assign out_block[44] = inp_block[32-3 ];
-assign out_block[43] = inp_block[32-4 ];
-assign out_block[42] = inp_block[32-5 ];
-//line2
-assign out_block[41] = inp_block[32-4 ];
-assign out_block[40] = inp_block[32-5 ];
-assign out_block[39] = inp_block[32-6 ];
-assign out_block[38] = inp_block[32-7 ];
-assign out_block[37] = inp_block[32-8 ];
-assign out_block[36] = inp_block[32-9 ];
-//line3
-assign out_block[35] = inp_block[32-8 ];
-assign out_block[34] = inp_block[32-9 ];
-assign out_block[33] = inp_block[32-10];
-assign out_block[32] = inp_block[32-11];
-assign out_block[31] = inp_block[32-12];
-assign out_block[30] = inp_block[32-13];
-//line4
-assign out_block[29] = inp_block[32-12];
-assign out_block[28] = inp_block[32-13];
-assign out_block[27] = inp_block[32-14];
-assign out_block[26] = inp_block[32-15];
-assign out_block[25] = inp_block[32-16];
-assign out_block[24] = inp_block[32-17];
-//line5
-assign out_block[23] = inp_block[32-16];
-assign out_block[22] = inp_block[32-17];
-assign out_block[21] = inp_block[32-18];
-assign out_block[20] = inp_block[32-19];
-assign out_block[19] = inp_block[32-20];
-assign out_block[18] = inp_block[32-21];
-//line6
-assign out_block[17] = inp_block[32-20];
-assign out_block[16] = inp_block[32-21];
-assign out_block[15] = inp_block[32-22];
-assign out_block[14] = inp_block[32-23];
-assign out_block[13] = inp_block[32-24];
-assign out_block[12] = inp_block[32-25];
-//line7
-assign out_block[11] = inp_block[32-24];
-assign out_block[10] = inp_block[32-25];
-assign out_block[9 ] = inp_block[32-26];
-assign out_block[8 ] = inp_block[32-27];
-assign out_block[7 ] = inp_block[32-28];
-assign out_block[6 ] = inp_block[32-29];
-//line8
-assign out_block[5 ] = inp_block[32-28];
-assign out_block[4 ] = inp_block[32-29];
-assign out_block[3 ] = inp_block[32-30];
-assign out_block[2 ] = inp_block[32-31];
-assign out_block[1 ] = inp_block[32-32];
-assign out_block[0 ] = inp_block[32-1 ];
+	//assignment from table
+	//line1
+	assign out_block[47] = inp_block[32-32];
+	assign out_block[46] = inp_block[32-1 ];
+	assign out_block[45] = inp_block[32-2 ];
+	assign out_block[44] = inp_block[32-3 ];
+	assign out_block[43] = inp_block[32-4 ];
+	assign out_block[42] = inp_block[32-5 ];
+	//line2
+	assign out_block[41] = inp_block[32-4 ];
+	assign out_block[40] = inp_block[32-5 ];
+	assign out_block[39] = inp_block[32-6 ];
+	assign out_block[38] = inp_block[32-7 ];
+	assign out_block[37] = inp_block[32-8 ];
+	assign out_block[36] = inp_block[32-9 ];
+	//line3
+	assign out_block[35] = inp_block[32-8 ];
+	assign out_block[34] = inp_block[32-9 ];
+	assign out_block[33] = inp_block[32-10];
+	assign out_block[32] = inp_block[32-11];
+	assign out_block[31] = inp_block[32-12];
+	assign out_block[30] = inp_block[32-13];
+	//line4
+	assign out_block[29] = inp_block[32-12];
+	assign out_block[28] = inp_block[32-13];
+	assign out_block[27] = inp_block[32-14];
+	assign out_block[26] = inp_block[32-15];
+	assign out_block[25] = inp_block[32-16];
+	assign out_block[24] = inp_block[32-17];
+	//line5
+	assign out_block[23] = inp_block[32-16];
+	assign out_block[22] = inp_block[32-17];
+	assign out_block[21] = inp_block[32-18];
+	assign out_block[20] = inp_block[32-19];
+	assign out_block[19] = inp_block[32-20];
+	assign out_block[18] = inp_block[32-21];
+	//line6
+	assign out_block[17] = inp_block[32-20];
+	assign out_block[16] = inp_block[32-21];
+	assign out_block[15] = inp_block[32-22];
+	assign out_block[14] = inp_block[32-23];
+	assign out_block[13] = inp_block[32-24];
+	assign out_block[12] = inp_block[32-25];
+	//line7
+	assign out_block[11] = inp_block[32-24];
+	assign out_block[10] = inp_block[32-25];
+	assign out_block[9 ] = inp_block[32-26];
+	assign out_block[8 ] = inp_block[32-27];
+	assign out_block[7 ] = inp_block[32-28];
+	assign out_block[6 ] = inp_block[32-29];
+	//line8
+	assign out_block[5 ] = inp_block[32-28];
+	assign out_block[4 ] = inp_block[32-29];
+	assign out_block[3 ] = inp_block[32-30];
+	assign out_block[2 ] = inp_block[32-31];
+	assign out_block[1 ] = inp_block[32-32];
+	assign out_block[0 ] = inp_block[32-1 ];
 
-	
 endmodule // EF
 
 module feistel (inp_block, subkey, out_block);
