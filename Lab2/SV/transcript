@@ -13,7 +13,7 @@
 # //
 # do des.do
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 10:31:50 on Oct 19,2023
+# Start time: 14:09:10 on Oct 19,2023
 # vlog -reportprogress 300 des_stub.sv tb_des.sv 
 # -- Compiling module GenerateKeys
 # -- Compiling module PC1
@@ -36,12 +36,11 @@
 # -- Compiling module stimulus
 # 
 # Top level modules:
-# 	round
 # 	stimulus
-# End time: 10:31:50 on Oct 19,2023, Elapsed time: 0:00:00
+# End time: 14:09:10 on Oct 19,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 10:31:50 on Oct 19,2023
+# Start time: 14:09:10 on Oct 19,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.stimulus(fast)
@@ -50,20 +49,27 @@
 # Loading work.PC1(fast)
 # Loading work.PC2(fast)
 # Loading work.IP(fast)
+# Loading work.round(fast)
+# Loading work.feistel(fast)
+# Loading work.EF(fast)
+# Loading work.S8_Box(fast)
+# Loading work.S7_Box(fast)
+# Loading work.S6_Box(fast)
+# Loading work.S5_Box(fast)
+# Loading work.S4_Box(fast)
+# Loading work.S3_Box(fast)
+# Loading work.S2_Box(fast)
+# Loading work.S1_Box(fast)
+# Loading work.SF(fast)
 # Loading work.FP(fast)
 # .main_pane.wave.interior.cs.body.pw.wf
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: aalabas  Hostname: CEAT-ENDV350-10  ProcessID: 8352
-#           Attempting to use alternate WLF file "./wlftbn9i18".
+#           Attempting to use alternate WLF file "./wlft885yr6".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftbn9i18
+#           Using alternate file: ./wlft885yr6
 #          8 tests completed with          8 errors
 # ** Note: $finish    : tb_des.sv(61)
 #    Time: 75 ns  Iteration: 1  Instance: /stimulus
 # 1
 # Break in Module stimulus at tb_des.sv line 61
-# Break key hit
-# Break key hit
-# Break key hit
-# End time: 10:32:36 on Oct 19,2023, Elapsed time: 0:00:46
-# Errors: 0, Warnings: 2
