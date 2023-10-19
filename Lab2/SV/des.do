@@ -29,7 +29,7 @@ vsim -voptargs=+acc work.stimulus
 view wave
 -- display input and output signals as hexidecimal values
 # Diplays All Signals recursively
-add wave -hex -r /stimulus/*
+add wave -hex /stimulus/dut/*
 #add wave -noupdate -divider -height 32 "ALU"
 #add wave -hex /testbench/dut/arm/dp/alu/*
 -- Set Wave Output Items 
@@ -38,7 +38,7 @@ WaveRestoreZoom {0 ps} {75 ns}
 configure wave -namecolwidth 350
 configure wave -valuecolwidth 200
 configure wave -justifyvalue left
-configure wave -signalnamewidth 1
+configure wave -signalnamewidth 10
 configure wave -snapdistance 10
 configure wave -datasetprefix 0
 configure wave -rowmargin 4
