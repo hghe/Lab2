@@ -13,7 +13,7 @@
 # //
 # do des.do
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 15:06:01 on Oct 19,2023
+# Start time: 15:25:02 on Oct 19,2023
 # vlog -reportprogress 300 des_stub.sv tb_des.sv 
 # -- Compiling module GenerateKeys
 # -- Compiling module PC1
@@ -37,10 +37,10 @@
 # 
 # Top level modules:
 # 	stimulus
-# End time: 15:06:01 on Oct 19,2023, Elapsed time: 0:00:00
+# End time: 15:25:02 on Oct 19,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 15:06:01 on Oct 19,2023
+# Start time: 15:25:03 on Oct 19,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
 # Loading work.stimulus(fast)
@@ -65,15 +65,11 @@
 # .main_pane.wave.interior.cs.body.pw.wf
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: aalabas  Hostname: CEAT-ENDV350-10  ProcessID: 8352
-#           Attempting to use alternate WLF file "./wlftz4fize".
+#           Attempting to use alternate WLF file "./wlftntq33j".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftz4fize
-#          8 tests completed with          4 errors
+#           Using alternate file: ./wlftntq33j
+#          8 tests completed with          0 errors
 # ** Note: $finish    : tb_des.sv(61)
 #    Time: 75 ns  Iteration: 1  Instance: /stimulus
-# Region not found: "sim:/stimulus/<anonymous>"
 # 1
 # Break in Module stimulus at tb_des.sv line 61
-# Break key hit
-# End time: 15:08:24 on Oct 19,2023, Elapsed time: 0:02:23
-# Errors: 0, Warnings: 2
