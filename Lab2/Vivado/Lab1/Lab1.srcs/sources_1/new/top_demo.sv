@@ -57,23 +57,6 @@ logic [63:0] plaintext;
 logic [63:0] ciphertext;
 
 
-/*
-
-assign [0]cbc = [193] tv;
-assign [0]encrypt = [192] tv;
-assign [63:0] plaintext = [191:128] tv;
-assign [63:0] key = [127:64] tv;
-assign [63:0] iv = [63:0] tv;
-*/
-
-assign plaintext = 64'hed7bc587a26f8c67;
-assign key = 64'h3b3898371520f75e;
-assign iv = 64'h0000000000000000;
-
-assign cbc = 1'b0;
-assign encrypt = 1'b1;
-
-
 DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
 
 
@@ -110,26 +93,43 @@ DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
       4'b1011: toSeg = plaintext[15:0];
 
     endcase
-  /*
     case(sw[5:4])
       2'b00: 
       begin
-        tv = 194'h0_1_ed7bc587a26f8c67_3b3898371520f75e_0000000000000000;
+        assign plaintext = 64'hed7b_c587_a26f_8c67;
+        assign key = 64'h3b3898371520f75e;
+        assign iv = 64'h0000000000000000;
+        assign cbc = 1'b0;
+        assign encrypt = 1'b1;
       end
       2'b01:
       begin
-        tv = 194'h0_1_ed7bc587a26f8c67_3b3898371520f75e_0000000000000000;
+        assign plaintext = 64'hed7b_c587_a26f_8c67;
+        assign key = 64'h3b3898371520f75e;
+        assign iv = 64'h0000000000000000;
+        assign cbc = 1'b0;
+        assign encrypt = 1'b1;
       end
       2'b10:
       begin
-        tv = 194'h0_1_ed7bc587a26f8c67_3b3898371520f75e_0000000000000000;
+        
+        assign plaintext = 64'hed7b_c587_a26f_8c67;
+        assign key = 64'h3b3898371520f75e;
+        assign iv = 64'h0000000000000000;
+        assign cbc = 1'b0;
+        assign encrypt = 1'b1;
       end
       2'b11:
       begin
-        tv = 194'h0_1_ed7bc587a26f8c67_3b3898371520f75e_0000000000000000;
+        assign plaintext = 64'hed7b_c587_a26f_8c67;
+        assign key = 64'h3b3898371520f75e;
+        assign iv = 64'h0000000000000000;
+        assign cbc = 1'b0;
+        assign encrypt = 1'b1;
       end
 
     endcase
+  /*
   */
   end
   
