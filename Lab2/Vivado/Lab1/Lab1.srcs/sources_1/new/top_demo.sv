@@ -89,28 +89,31 @@ DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
       end
       2'b01:
       begin
-        plaintext <= 64'hed7b_c587_a26f_8c67;
-        key <= 64'h3b3898371520f75e;
+        plaintext <= 64'hea37_231a_9ad2_e5d9;
+        key <= 64'h3b3_8983_7152_0f75e;
         iv <= 64'h0000000000000000;
         cbc <= 1'b0;
-        encrypt <= 1'b1;
+        encrypt <= 1'b0;
+        //ciphertext: ed7b_c587_a26f_8c67
       end
       2'b10:
       begin
         
-        plaintext <= 64'hed7b_c587_a26f_8c67;
-        key <= 64'h3b3898371520f75e;
-        iv <= 64'h0000000000000000;
-        cbc <= 1'b0;
+        plaintext <= 64'h123456abcd132536;
+        key <= 64'h133457799bbcdff1;
+        iv <= 64'h1000001000000001;
+        cbc <= 1'b1;
         encrypt <= 1'b1;
+        // ciphertext: hed40bc9addcb322d
       end
       2'b11:
       begin
-        plaintext <= 64'hed7b_c587_a26f_8c67;
-        key <= 64'h3b3898371520f75e;
-        iv <= 64'h0000000000000000;
-        cbc <= 1'b0;
-        encrypt <= 1'b1;
+        plaintext <= 64'hed40_bc9a_ddcb_322d;
+        key <= 64'h133457799bbcdff1;
+        iv <= 64'h1000001000000001;
+        cbc <= 1'b1;
+        encrypt <= 1'b0;
+        //ciphertext: 123456abcd132536
       end
       default : begin
         plaintext <= 64'h0;
