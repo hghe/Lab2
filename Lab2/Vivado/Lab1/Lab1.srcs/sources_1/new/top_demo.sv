@@ -44,7 +44,7 @@ module top_demo
   logic [16:0] NEXT_COUNT;
   logic        smol_clk;
   
-  // Place TicTacToe instantiation here
+  
   
 //DES des (key, plaintext, encrypt, cbc, iv, ciphertext);
 logic [15:0] toSeg;
@@ -56,12 +56,72 @@ logic [63:0] key;
 logic [63:0] plaintext;
 logic [63:0] ciphertext;
 
-
+// Place DES instantiation here
 DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
 
-
-
-
+// Register logic storing clock counts
+  always @(*)
+  begin
+    case(sw[3:0])
+      4'b0000: toSeg <= ciphertext[63:48];
+      4'b0001: toSeg <= ciphertext[47:32];
+      4'b0010: toSeg <= ciphertext[31:16];
+      4'b0011: toSeg <= ciphertext[15:0];
+      4'b0100: toSeg <= key[63:48];
+      4'b0101: toSeg <= key[47:32];
+      4'b0110: toSeg <= key[31:16];
+      4'b0111: toSeg <= key[15:0];
+      4'b1000: toSeg <= plaintext[63:48];
+      4'b1001: toSeg <= plaintext[47:32];
+      4'b1010: toSeg <= plaintext[31:16];
+      4'b1011: toSeg <= plaintext[15:0];
+     default : toSeg <= 16'h0000;
+    endcase
+    case(sw[5:4])
+      2'b00: 
+      begin
+        plaintext <= 64'hed7b_c587_a26f_8c67;
+        key <= 64'h3b38_9837_1520_f75e;
+        iv <= 64'h0000000000000000;
+        cbc <= 1'b0;
+        encrypt <= 1'b1;
+        //ciphertext: ea37231a9ad2e5d9
+      end
+      2'b01:
+      begin
+        plaintext <= 64'hed7b_c587_a26f_8c67;
+        key <= 64'h3b3898371520f75e;
+        iv <= 64'h0000000000000000;
+        cbc <= 1'b0;
+        encrypt <= 1'b1;
+      end
+      2'b10:
+      begin
+        
+        plaintext <= 64'hed7b_c587_a26f_8c67;
+        key <= 64'h3b3898371520f75e;
+        iv <= 64'h0000000000000000;
+        cbc <= 1'b0;
+        encrypt <= 1'b1;
+      end
+      2'b11:
+      begin
+        plaintext <= 64'hed7b_c587_a26f_8c67;
+        key <= 64'h3b3898371520f75e;
+        iv <= 64'h0000000000000000;
+        cbc <= 1'b0;
+        encrypt <= 1'b1;
+      end
+      default : begin
+        plaintext <= 64'h0;
+        key <= 64'h0;
+        iv <= 64'h0;
+        cbc <= 1'b0;
+        encrypt <= 1'b0;
+      end
+    endcase
+  end
+  
   // 7-segment display
   segment_driver driver(
   .clk(smol_clk),
@@ -74,64 +134,7 @@ DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
   .segment_cathodes({sseg_dp, sseg_cg, sseg_cf, sseg_ce, sseg_cd, sseg_cc, sseg_cb, sseg_ca}),
   .digit_anodes(sseg_an)
   );
-
-// Register logic storing clock counts
-  always@(posedge sysclk_125mhz)
-  begin
-    case(sw[3:0])
-      4'b0000: toSeg = ciphertext[63:48];
-      4'b0001: toSeg = ciphertext[47:32];
-      4'b0010: toSeg = ciphertext[31:16];
-      4'b0011: toSeg = ciphertext[15:0];
-      4'b0100: toSeg = key[63:48];
-      4'b0101: toSeg = key[47:32];
-      4'b0110: toSeg = key[31:16];
-      4'b0111: toSeg = key[15:0];
-      4'b1000: toSeg = plaintext[63:48];
-      4'b1001: toSeg = plaintext[47:32];
-      4'b1010: toSeg = plaintext[31:16];
-      4'b1011: toSeg = plaintext[15:0];
-
-    endcase
-    case(sw[5:4])
-      2'b00: 
-      begin
-        assign plaintext = 64'hed7b_c587_a26f_8c67;
-        assign key = 64'h3b3898371520f75e;
-        assign iv = 64'h0000000000000000;
-        assign cbc = 1'b0;
-        assign encrypt = 1'b1;
-      end
-      2'b01:
-      begin
-        assign plaintext = 64'hed7b_c587_a26f_8c67;
-        assign key = 64'h3b3898371520f75e;
-        assign iv = 64'h0000000000000000;
-        assign cbc = 1'b0;
-        assign encrypt = 1'b1;
-      end
-      2'b10:
-      begin
-        
-        assign plaintext = 64'hed7b_c587_a26f_8c67;
-        assign key = 64'h3b3898371520f75e;
-        assign iv = 64'h0000000000000000;
-        assign cbc = 1'b0;
-        assign encrypt = 1'b1;
-      end
-      2'b11:
-      begin
-        assign plaintext = 64'hed7b_c587_a26f_8c67;
-        assign key = 64'h3b3898371520f75e;
-        assign iv = 64'h0000000000000000;
-        assign cbc = 1'b0;
-        assign encrypt = 1'b1;
-      end
-
-    endcase
-  /*
-  */
-  end
+  
   
   // Increment logic
   assign NEXT_COUNT = CURRENT_COUNT == 17'd100000 ? 17'h00000 : CURRENT_COUNT + 1;
