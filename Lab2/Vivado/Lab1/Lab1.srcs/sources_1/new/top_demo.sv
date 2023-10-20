@@ -90,7 +90,7 @@ DES des(key, plaintext, encrypt, cbc, iv, ciphertext);
       2'b01:
       begin
         plaintext <= 64'hea37_231a_9ad2_e5d9;
-        key <= 64'h3b3_8983_7152_0f75e;
+        key <= 64'h3b38_9837_1520_f75e;
         iv <= 64'h0000000000000000;
         cbc <= 1'b0;
         encrypt <= 1'b0;
