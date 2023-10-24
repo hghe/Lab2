@@ -1,6 +1,9 @@
 # do des.do
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is gcorn@SPECTREG.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
 # Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 12:19:02 on Oct 20,2023
+# Start time: 21:11:26 on Oct 23,2023
 # vlog des_stub.sv tb_des.sv 
 # -- Compiling module GenerateKeys
 # -- Compiling module PC1
@@ -24,10 +27,10 @@
 # 
 # Top level modules:
 # 	stimulus
-# End time: 12:19:02 on Oct 20,2023, Elapsed time: 0:00:00
+# End time: 21:11:26 on Oct 23,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" work.stimulus 
-# Start time: 12:19:02 on Oct 20,2023
+# Start time: 21:11:26 on Oct 23,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2021.3 Jul 13 2021
 # //
@@ -64,9 +67,9 @@
 # Loading work.FP(fast)
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: aalabas  Hostname: CEAT-ENDV350-10  ProcessID: 8352
-#           Attempting to use alternate WLF file "./wlftmjr8a8".
+#           Attempting to use alternate WLF file "./wlfty4y6nh".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftmjr8a8
+#           Using alternate file: ./wlfty4y6nh
 # configure wave not supported in batch mode
 # configure wave not supported in batch mode
 # configure wave not supported in batch mode
@@ -75,5 +78,5 @@
 # configure wave not supported in batch mode
 # configure wave not supported in batch mode
 # configure wave not supported in batch mode
-# End time: 12:19:03 on Oct 20,2023, Elapsed time: 0:00:01
+# End time: 21:11:28 on Oct 23,2023, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 2

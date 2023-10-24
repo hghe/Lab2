@@ -54,8 +54,8 @@ module stimulus;
 	 begin
 	    errors = errors + 1;
 	 end
-       $fdisplay(desc3, "%h %h %b || %h || %h %b", 
-		 plaintext, key, encrypt, ciphertext, result, (result == ciphertext));
+       $fdisplay(desc3, "%h %h %h %b %b || %h || %h %b", 
+		 plaintext, key, iv, cbc, encrypt, ciphertext, result, (result == ciphertext));
        vectornum = vectornum + 1;
        if (testvectors[vectornum] === 200'bx) 
 	 begin 
